@@ -11,7 +11,7 @@ public class MiJuego extends Game {
 	SpriteBatch batch;
 	Texture img;
 	int c;
-	// Crea el programa
+	// Crea el programa!
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
