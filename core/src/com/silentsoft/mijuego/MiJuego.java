@@ -11,27 +11,30 @@ public class MiJuego extends Game {
 	SpriteBatch batch;
 	Texture img;
 	int c;
-	// Crea el programa!
+
+	// Crea los objetos y declara variables
+	/* Cuando se crea la ventana del juego, se ejecuta esta funcion. */
 	@Override
-	public void create () {
+	public void create() {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 	}
 
-	// Metodo que ejecuta el programa 60 veces por segundo
+	// Actualiza el juego (update) cada cierto tiempo (60 fps en este caso)
+	/* Funcion que ejecuta el programa en paralelo. */
 	@Override
-	public void render () {
-		c++;
+	public void render() {
+		// System.out.println("Hola!");
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		batch.draw(img, c, 0);
+		batch.draw(img, 0, 0); // Dibuja el sprite en la posicion x:y 60 veces por segundo
 		batch.end();
 	}
-	
-	// Libera los recursos de la memoria
+
+	// Libera la memoria sin uso
 	@Override
-	public void dispose () {
+	public void dispose() {
 		batch.dispose();
 		img.dispose();
 	}
