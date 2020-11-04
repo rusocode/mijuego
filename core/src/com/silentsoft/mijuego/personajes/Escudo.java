@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+// Clase para tener el codigo mas limpio
 public class Escudo {
 
 	private Sprite sprite;
@@ -27,9 +28,14 @@ public class Escudo {
 
 	public void dibujar(SpriteBatch batch) {
 
-		/* Creando una clase aparte para la imagen escudo, nos evitamos pasar los parametros para el objeto batch
-		 * (batch.draw(textura, 20, 20, 50, 50);) dejando asi, el codigo mas limpio. */
-		sprite.draw(batch); // El sprite ya tiene sus caracteristicas
+		// Diferencia entre Sprite y SpriteBatch
+		/* De una manera simple se puede decir que la clase Sprite es un paquete completo (donde dibujar y con diferentes
+		 * factores como tamaño, factor de escala, rotacion…), en donde se evita tener que pasar por parametro los diferentes
+		 * factores.
+		 * 
+		 * Pero si usas "batch.draw(textura, 20,...);" debes indicar la posicion, el tamaño y otros factores que se requieren
+		 * para dibujar mediante el metodo draw(). */
+		sprite.draw(batch);
 
 	}
 
