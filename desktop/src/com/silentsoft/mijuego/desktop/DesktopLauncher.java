@@ -6,7 +6,12 @@ import com.silentsoft.mijuego.MiJuego;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
+		
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		
+		// El objeto config configura el programa
+		config.title = "AO";
+		
 		new LwjglApplication(new MiJuego(), config);
 	}
 }
