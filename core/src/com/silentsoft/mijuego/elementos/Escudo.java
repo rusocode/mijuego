@@ -1,26 +1,18 @@
-package com.silentsoft.mijuego.personajes;
+package com.silentsoft.mijuego.elementos;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-// Clase para tener el codigo mas limpio
 public class Escudo {
 
 	private Sprite sprite;
 	private Texture textura; // Represanta una imagen
-	private float x, y;
-	private float ancho, alto;
 
 	public Escudo(float x, float y, float ancho, float alto) {
 
 		textura = new Texture("escudo.png");
 		sprite = new Sprite(textura);
-		this.x = x;
-		this.y = y;
-		this.ancho = ancho;
-		this.alto = alto;
-
 		sprite.setPosition(x, y);
 		sprite.setSize(ancho, alto);
 
@@ -37,6 +29,14 @@ public class Escudo {
 		 * para dibujar mediante el metodo draw(). */
 		sprite.draw(batch);
 
+	}
+
+	public void setX(float x) {
+		sprite.setX(x);
+	}
+
+	public void setY(float y) {
+		sprite.setY(y);
 	}
 
 }
