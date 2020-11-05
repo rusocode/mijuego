@@ -23,8 +23,10 @@ public class MiJuego extends Game {
 	/* Cuando se crea la ventana del juego, se ejecuta esta funcion. */
 	@Override
 	public void create() {
-		System.out.println("create()");
+		
+		Render.app = this; // Le pasa la referencia de memoria de esta clase a la variable app de la clase Render
 		Render.batch = new SpriteBatch();
+		
 		this.setScreen(new PantallaCarga());
 	}
 
@@ -34,7 +36,6 @@ public class MiJuego extends Game {
 	 * En otras palabras funciona como un bucle. */
 	@Override
 	public void render() {
-		System.out.println("render()");
 		super.render();
 	}
 
