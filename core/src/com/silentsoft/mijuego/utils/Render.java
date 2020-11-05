@@ -8,8 +8,8 @@ public class Render {
 
 	public static SpriteBatch batch; // Objeto que se usa para mostrar una imagen
 
-	public static void limpiarPantalla() {
-		Gdx.gl.glClearColor(0, 0, 0, 1); // Limpia la pantalla de un color especifico (RGB, trasnparencia)
+	public static void limpiarPantalla(int r, int g, int b) {
+		Gdx.gl.glClearColor(r, g, b, 1); // Limpia la pantalla de un color especifico
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Limpia la pantalla con el color que se indico antes
 	}
 

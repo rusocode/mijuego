@@ -13,6 +13,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.silentsoft.mijuego.elementos.Escudo;
+import com.silentsoft.mijuego.elementos.Imagen;
 import com.silentsoft.mijuego.pantallas.PantallaCarga;
 import com.silentsoft.mijuego.utils.Render;
 
@@ -22,19 +23,24 @@ public class MiJuego extends Game {
 	/* Cuando se crea la ventana del juego, se ejecuta esta funcion. */
 	@Override
 	public void create() {
+		System.out.println("create()");
 		Render.batch = new SpriteBatch();
 		this.setScreen(new PantallaCarga());
 	}
 
 	/* Esta funcion se ejecuta en paralelo al programa. Su objetivo es dibujar (actualizar) 60 veces por segundo (en este
-	 * caso) un sprite en pantalla. */
+	 * caso) un sprite en pantalla.
+	 * 
+	 * En otras palabras funciona como un bucle. */
 	@Override
 	public void render() {
+		System.out.println("render()");
 		super.render();
 	}
 
 	// Actualiza la posicion de la imagen
 	private void update() {
+
 	}
 
 	// Libera la memoria sin uso

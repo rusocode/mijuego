@@ -10,23 +10,41 @@ public class PantallaCarga implements Screen {
 
 	Imagen imagen;
 	SpriteBatch batch;
+	boolean fadeInTerminado;
+	float a = 0;
+	float contTiempo = 0, contEspera = 5;
 
+	// Se llama en la nueva pantalla, si existe
 	@Override
 	public void show() {
+		System.out.println("show()");
 		imagen = new Imagen(Recursos.FONDO);
+
 		batch = Render.batch; // Guarda la referencia a la direccion del objeto de clase
 	}
 
 	@Override
 	public void render(float delta) {
-		
-		// Pinta la pantalla antes de pintar el sprite
-		Render.limpiarPantalla();
-		
-		// Muestra la imagen
-		batch.begin();
+		System.out.println("render() de la interfaz Screen");
+
+		// Limpia la pantalla antes de dibujar el sprite
+		Render.limpiarPantalla(0, 0, 0);
+
+		procesarFade();
+
+		batch.begin(); // Muestra la imagen
 		imagen.dibujar();
 		batch.end();
+
+	}
+
+	private void procesarFade() {
+		if (!fadeInTerminado) {
+			if (a <= 1) {
+				imagen.setTransparencia(a);
+				a += 0.01f;
+			}
+		}
 
 	}
 
