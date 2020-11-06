@@ -1,24 +1,24 @@
-package com.silentsoft.mijuego.pantallas;
+package com.silentsoft.mijuego.views.screens;
 
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.silentsoft.mijuego.elementos.Imagen;
 import com.silentsoft.mijuego.utils.Recursos;
 import com.silentsoft.mijuego.utils.Render;
 
-public class PantallaCarga implements Screen {
+public class CargaView extends View {
 
 	Imagen imagen;
 	SpriteBatch batch;
-	boolean fadeInTerminado = false, termina;
+	boolean fadeInTerminado, termina;
 	float alpha;
+	// Utilizacion del parametro Delta para calcular los intervalos de tiempo
 	float cTiempo, tiempoEspera = 5;
 	float cTiempoTermina, tiempoTermina = 5;
 
-	// Se llama en la nueva pantalla, si existe
+	// Muestra la pantalla
 	@Override
 	public void show() {
-		imagen = new Imagen(Recursos.FONDO);
+		imagen = new Imagen(Recursos.LOGO);
 		batch = Render.batch; // Guarda la referencia a la direccion del objeto de clase
 
 		imagen.setTransparencia(alpha);
@@ -52,50 +52,18 @@ public class PantallaCarga implements Screen {
 			if (cTiempo > tiempoEspera) { // Espera un tiempo antes de empezar a desvanecer la imagen
 				alpha -= 0.01f;
 				if (alpha <= 0) alpha = 0; // Cuando la transparencia llega a 0, entonces le asigna 0 a alpha para evitar volver a la transparencia 1
-
 				termina = true;
-
 			}
 		}
 
+		/* Despues de la pantalla de carga espera un tiempito para cambiar a la pantalla principal, evitando un cambio
+		 * abrupto. */
 		if (termina) {
 			cTiempoTermina += 0.04f;
-			if (cTiempoTermina > tiempoEspera) {
-				System.out.println("Ola k ase!");
-			}
+			if (cTiempoTermina > tiempoEspera) Render.app.setScreen(new MenuView());
 		}
 
 		imagen.setTransparencia(alpha);
-
-	}
-
-	@Override
-	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
 
 	}
 

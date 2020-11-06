@@ -9,25 +9,24 @@ package com.silentsoft.mijuego;
  * */
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.silentsoft.mijuego.elementos.Escudo;
-import com.silentsoft.mijuego.elementos.Imagen;
-import com.silentsoft.mijuego.pantallas.PantallaCarga;
 import com.silentsoft.mijuego.utils.Render;
+import com.silentsoft.mijuego.views.screens.CargaView;
 
+/* La clase abstracta Game es de alguna manera la implementacion predeterminada de la interfaz ApplicationListener y
+ * delega la mayor parte del trabajo a la Screen actual. */
 public class MiJuego extends Game {
 
 	// Crea los objetos y declara variables
 	/* Cuando se crea la ventana del juego, se ejecuta esta funcion. */
 	@Override
 	public void create() {
-		
+
 		Render.app = this; // Le pasa la referencia de memoria de esta clase a la variable app de la clase Render
 		Render.batch = new SpriteBatch();
-		
-		this.setScreen(new PantallaCarga());
+
+		// Cambia de pantalla
+		this.setScreen(new CargaView());
 	}
 
 	/* Esta funcion se ejecuta en paralelo al programa. Su objetivo es dibujar (actualizar) 60 veces por segundo (en este
@@ -37,11 +36,6 @@ public class MiJuego extends Game {
 	@Override
 	public void render() {
 		super.render();
-	}
-
-	// Actualiza la posicion de la imagen
-	private void update() {
-
 	}
 
 	// Libera la memoria sin uso
