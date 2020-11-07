@@ -26,7 +26,7 @@ public class MiJuego extends Game {
 		Render.batch = new SpriteBatch();
 
 		// Cambia de pantalla
-		this.setScreen(new CargaView());
+		setScreen(new CargaView());
 	}
 
 	/* Esta funcion se ejecuta en paralelo al programa. Su objetivo es dibujar (actualizar) 60 veces por segundo (en este

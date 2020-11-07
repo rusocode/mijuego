@@ -20,9 +20,6 @@ public class CargaView extends View {
 	public void show() {
 		imagen = new Imagen(Recursos.LOGO);
 		batch = Render.batch; // Guarda la referencia a la direccion del objeto de clase
-
-		imagen.setTransparencia(alpha);
-
 	}
 
 	@Override
