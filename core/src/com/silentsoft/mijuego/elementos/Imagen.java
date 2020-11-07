@@ -13,7 +13,7 @@ public class Imagen {
 	public Imagen(String ruta) {
 		textura = new Texture(ruta);
 		sprite = new Sprite(textura); // Crea el sprite con la textura especificada
-		sprite.setSize(Gdx.app.getGraphics().getWidth(), Gdx.app.getGraphics().getHeight());
+		sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 	}
 
 	public void dibujar() {
