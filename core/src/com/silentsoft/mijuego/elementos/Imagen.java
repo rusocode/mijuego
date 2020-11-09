@@ -1,5 +1,6 @@
 package com.silentsoft.mijuego.elementos;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.silentsoft.mijuego.utils.Render;
@@ -12,7 +13,9 @@ public class Imagen {
 	public Imagen(String ruta) {
 		textura = new Texture(ruta);
 		sprite = new Sprite(textura); // Crea el sprite con la textura especificada
-		sprite.setSize(400, 500);
+
+		// Ajusta el tamaño de la imagen al tamaño de la ventana
+		sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 	}
 
 	public void dibujar() {
@@ -28,6 +31,10 @@ public class Imagen {
 
 	public void setTransparencia(float a) {
 		sprite.setAlpha(a);
+	}
+
+	public void setSize(float ancho, float alto) {
+		sprite.setSize(ancho, alto);
 	}
 
 }

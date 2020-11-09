@@ -10,6 +10,8 @@ public class MenuView extends View {
 	SpriteBatch batch;
 	Imagen imagen;
 
+	/* public CargaManager getGestor() { return (CargaManager) gestor; } */
+
 	@Override
 	public void show() {
 		imagen = new Imagen(Recursos.FONDO);

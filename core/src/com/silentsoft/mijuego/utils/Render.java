@@ -4,12 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import com.silentsoft.mijuego.MiJuego;
+import com.silentsoft.mijuego.Main;
 
 public class Render {
 
 	public static SpriteBatch batch; // Objeto que se usa para mostrar una imagen
-	public static MiJuego app;
+	public static Main app;
 	
 	public static void limpiarPantalla(int r, int g, int b) {
 		Gdx.gl.glClearColor(r, g, b, 1); // Limpia la pantalla de un color especifico
