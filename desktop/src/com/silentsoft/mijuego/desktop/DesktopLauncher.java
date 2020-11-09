@@ -2,7 +2,7 @@ package com.silentsoft.mijuego.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.silentsoft.mijuego.Main;
+import com.silentsoft.mijuego.Mainn;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
@@ -12,6 +12,6 @@ public class DesktopLauncher {
 		// El objeto config configura el programa
 		config.title = "AO";
 		
-		new LwjglApplication(new Main(), config);
+		new LwjglApplication(new Mainn(), config);
 	}
 }

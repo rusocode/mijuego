@@ -1,7 +1,7 @@
 package com.silentsoft.mijuego.views.screens;
 
 import com.badlogic.gdx.Screen;
-import com.silentsoft.mijuego.Main;
+import com.silentsoft.mijuego.Mainn;
 
 public abstract class View implements Screen {
 
@@ -41,6 +41,5 @@ public abstract class View implements Screen {
 	@Override
 	public void dispose() {
 	}
-
 
 }
