@@ -1,7 +1,7 @@
 package com.silentsoft.mijuego.views.screens;
 
 import com.badlogic.gdx.Screen;
-import com.silentsoft.mijuego.Mainn;
+import com.silentsoft.mijuego.Main;
 
 public abstract class View implements Screen {
 

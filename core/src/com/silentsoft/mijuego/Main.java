@@ -9,13 +9,15 @@ package com.silentsoft.mijuego;
  * */
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.silentsoft.mijuego.utils.Render;
 import com.silentsoft.mijuego.views.screens.CargaView;
+import com.silentsoft.mijuego.views.screens.MenuView;
 
 /* La clase abstracta Game es de alguna manera la implementacion predeterminada de la interfaz ApplicationListener y
  * delega la mayor parte del trabajo a la Screen actual. */
-public class MiJuego extends Game {
+public class Main extends Game {
 
 	// Crea los objetos y declara variables
 	/* Cuando se crea la ventana del juego, se ejecuta esta funcion. */
@@ -27,6 +29,7 @@ public class MiJuego extends Game {
 
 		// Cambia de pantalla
 		setScreen(new CargaView());
+		// setScreen(new MenuView());
 	}
 
 	/* Esta funcion se ejecuta en paralelo al programa. Su objetivo es dibujar (actualizar) 60 veces por segundo (en este
