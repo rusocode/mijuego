@@ -24,7 +24,7 @@ public class Main extends Game {
 	@Override
 	public void create() {
 
-		// Render.app = this; // Le pasa la referencia de memoria de esta clase a la variable app de la clase Render
+		Render.app = this; // Le pasa la referencia de memoria de esta clase a la variable app de la clase Render
 		Render.batch = new SpriteBatch();
 
 		// Cambia de pantalla

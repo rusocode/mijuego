@@ -15,7 +15,6 @@ public class Imagen {
 		sprite = new Sprite(textura); // Crea el sprite con la textura especificada
 
 		// Ajusta el tamaño de la imagen al tamaño de la ventana
-
 		sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 	}
 
