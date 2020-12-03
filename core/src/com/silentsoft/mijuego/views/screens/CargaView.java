@@ -1,6 +1,7 @@
 package com.silentsoft.mijuego.views.screens;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.silentsoft.mijuego.Main;
 import com.silentsoft.mijuego.elementos.Imagen;
 import com.silentsoft.mijuego.utils.Recursos;
 import com.silentsoft.mijuego.utils.Render;
@@ -14,6 +15,12 @@ public class CargaView extends View {
 	// Utilizacion del parametro Delta para calcular los intervalos de tiempo
 	float cTiempo, tiempoEspera = 5;
 	float cTiempoTermina, tiempoTermina = 5;
+
+	Main main;
+
+	public CargaView() {
+		main = new Main();
+	}
 
 	// Muestra la pantalla
 	@Override

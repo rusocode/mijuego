@@ -5,11 +5,6 @@ import com.silentsoft.mijuego.Main;
 
 public abstract class View implements Screen {
 
-	// protected Stage stage;
-	// protected ViewManager gestor;
-
-	/* public View(ViewManager gestor) { stage = Main.newStage(); texs = new Array<>(); this.gestor = gestor; } */
-
 	@Override
 	public void show() {
 	}

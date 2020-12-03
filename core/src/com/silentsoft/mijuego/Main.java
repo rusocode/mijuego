@@ -24,12 +24,12 @@ public class Main extends Game {
 	@Override
 	public void create() {
 
-		// Render.app = this; // Le pasa la referencia de memoria de esta clase a la variable app de la clase Render
+		Render.app = this; // Le pasa la referencia de memoria de esta clase a la variable app de la clase Render
 		Render.batch = new SpriteBatch();
 
 		// Cambia de pantalla
-		setScreen(new CargaView());
-		// setScreen(new MenuView());
+		setScreen(new MenuView());
+
 	}
 
 	/* Esta funcion se ejecuta en paralelo al programa. Su objetivo es dibujar (actualizar) 60 veces por segundo (en este
