@@ -3,13 +3,16 @@ package com.silentsoft.mijuego.elementos;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.math.Vector2;
 import com.silentsoft.mijuego.utils.Render;
 
 public class Texto {
 	BitmapFont fuente;
-	private int x, y;
+	private float x, y;
 	private String texto;
+	GlyphLayout layout;
 
 	public Texto(String ruta, int dimension, Color color, boolean sombra) {
 
@@ -27,18 +30,15 @@ public class Texto {
 		}
 
 		fuente = generador.generateFont(parametro);
+
+		layout = new GlyphLayout();
 	}
 
 	public void dibujar() {
 		fuente.draw(Render.batch, texto, x, y);
 	}
 
-	public void setPosition(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
-
-	public int getX() {
+	public float getX() {
 		return x;
 	}
 
@@ -46,7 +46,7 @@ public class Texto {
 		this.x = x;
 	}
 
-	public int getY() {
+	public float getY() {
 		return y;
 	}
 
@@ -60,6 +60,28 @@ public class Texto {
 
 	public void setTexto(String texto) {
 		this.texto = texto;
+		layout.setText(fuente, texto);
+	}
+
+	public float getAncho() {
+		return layout.width;
+	}
+
+	public float getAlto() {
+		return layout.height;
+	}
+
+	public Vector2 getDimension() {
+		return new Vector2(layout.width, layout.height);
+	}
+
+	public Vector2 getPosicion() {
+		return new Vector2(x, y);
+	}
+
+	public void setPosition(float x, float y) {
+		this.x = x;
+		this.y = y;
 	}
 
 }

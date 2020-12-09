@@ -22,7 +22,7 @@ public class MenuView extends View {
 
 		t = new Texto(Recursos.RUTA_FUENTE, 65, Color.BLACK, false);
 		t.setTexto("Fuente");
-		t.setPosition(100, 100);
+		t.setPosition((Config.ANCHO / 2) - (t.getAncho() / 2), (Config.ALTO / 2) + (t.getAlto() / 2));
 	}
 
 	@Override
