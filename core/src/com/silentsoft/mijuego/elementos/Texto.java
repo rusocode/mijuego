@@ -20,8 +20,8 @@ public class Texto {
 		FreeTypeFontGenerator generador = new FreeTypeFontGenerator(Gdx.files.internal(ruta));
 		// Configura la fuente
 		FreeTypeFontGenerator.FreeTypeFontParameter parametro = new FreeTypeFontGenerator.FreeTypeFontParameter();
-		parametro.size = 30;
-		parametro.color = Color.WHITE;
+		parametro.size = dimension;
+		parametro.color = color;
 
 		if (sombra) {
 			parametro.shadowColor = Color.BLACK;
