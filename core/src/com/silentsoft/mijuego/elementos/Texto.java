@@ -38,6 +38,10 @@ public class Texto {
 		fuente.draw(Render.batch, texto, x, y);
 	}
 
+	public void setColor(Color color) {
+		fuente.setColor(color);
+	}
+	
 	public float getX() {
 		return x;
 	}
