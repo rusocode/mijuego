@@ -82,9 +82,9 @@ public class MainMenuScreen extends View {
 				if (op < 1) op = 4;
 			}
 		}
-		
+
 		if (entrada.isEnter()) {
-			if(op == 1) Render.app.setScreen(new GameScreen());
+			if (op == 1) Render.app.setScreen(new GameScreen());
 		}
 
 		for (int i = 0; i < textos.size(); i++) {
