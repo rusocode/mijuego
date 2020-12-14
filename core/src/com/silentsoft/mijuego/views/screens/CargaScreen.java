@@ -6,7 +6,7 @@ import com.silentsoft.mijuego.elementos.Imagen;
 import com.silentsoft.mijuego.utils.Recursos;
 import com.silentsoft.mijuego.utils.Render;
 
-public class CargaView extends View {
+public class CargaScreen extends View {
 
 	Imagen imagen;
 	SpriteBatch batch;
@@ -18,7 +18,7 @@ public class CargaView extends View {
 
 	Main main;
 
-	public CargaView() {
+	public CargaScreen() {
 		main = new Main();
 	}
 
@@ -64,7 +64,7 @@ public class CargaView extends View {
 		 * abrupto. */
 		if (termina) {
 			cTiempoTermina += 0.04f;
-			if (cTiempoTermina > tiempoEspera) Render.app.setScreen(new MenuView());
+			if (cTiempoTermina > tiempoEspera) Render.app.setScreen(new MainMenuScreen());
 		}
 
 		imagen.setTransparencia(alpha);

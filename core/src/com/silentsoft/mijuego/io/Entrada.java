@@ -1,16 +1,16 @@
 package com.silentsoft.mijuego.io;
 
 import com.badlogic.gdx.InputProcessor;
-import com.silentsoft.mijuego.views.screens.MenuView;
+import com.silentsoft.mijuego.views.screens.MainMenuScreen;
 import com.badlogic.gdx.Input.Keys;
 
 public class Entrada implements InputProcessor {
 
-	private boolean abajo, arriba;
-	
-	MenuView app;
-	
-	public Entrada(MenuView app) {
+	private boolean abajo, arriba, enter;
+
+	MainMenuScreen app;
+
+	public Entrada(MainMenuScreen app) {
 		this.app = app;
 	}
 
@@ -21,12 +21,17 @@ public class Entrada implements InputProcessor {
 	public boolean isArriba() {
 		return arriba;
 	}
+	
+	public boolean isEnter() {
+		return enter;
+	}
 
 	// Si la tecla se preciona, entonces...
 	@Override
 	public boolean keyDown(int keycode) {
 		if (keycode == Keys.DOWN) abajo = true;
 		if (keycode == Keys.UP) arriba = true;
+		if (keycode == Keys.ENTER) enter = true;
 		return false;
 	}
 
@@ -35,6 +40,7 @@ public class Entrada implements InputProcessor {
 	public boolean keyUp(int keycode) {
 		if (keycode == Keys.DOWN) abajo = false;
 		if (keycode == Keys.UP) arriba = false;
+		if (keycode == Keys.ENTER) enter = false;
 		return false;
 	}
 

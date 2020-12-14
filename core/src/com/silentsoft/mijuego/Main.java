@@ -12,8 +12,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.silentsoft.mijuego.utils.Render;
-import com.silentsoft.mijuego.views.screens.CargaView;
-import com.silentsoft.mijuego.views.screens.MenuView;
+import com.silentsoft.mijuego.views.screens.CargaScreen;
+import com.silentsoft.mijuego.views.screens.MainMenuScreen;
 
 /* La clase abstracta Game es de alguna manera la implementacion predeterminada de la interfaz ApplicationListener y
  * delega la mayor parte del trabajo a la Screen actual. */
@@ -28,7 +28,7 @@ public class Main extends Game {
 		Render.batch = new SpriteBatch();
 
 		// Cambia de pantalla
-		setScreen(new MenuView());
+		setScreen(new MainMenuScreen());
 
 	}
 

@@ -1,5 +1,7 @@
 package com.silentsoft.mijuego.views.screens;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,7 +12,7 @@ import com.silentsoft.mijuego.utils.Config;
 import com.silentsoft.mijuego.utils.Recursos;
 import com.silentsoft.mijuego.utils.Render;
 
-public class MenuView extends View {
+public class MainMenuScreen extends View {
 
 	SpriteBatch batch;
 	Imagen imagen;
@@ -21,6 +23,8 @@ public class MenuView extends View {
 	float tiempo;
 
 	Entrada entrada = new Entrada(this);
+
+	ArrayList<Texto> textos = new ArrayList<>();
 
 	@Override
 	public void show() {
@@ -33,18 +37,22 @@ public class MenuView extends View {
 		t1 = new Texto(Recursos.FUENTE_RINGS, 35, Color.WHITE, true);
 		t1.setTexto("Nueva partida");
 		t1.setPosition((Config.ANCHO / 2) - (t1.getAncho() / 2), (Config.ALTO / 2) + 100);
+		textos.add(t1);
 
 		t2 = new Texto(Recursos.FUENTE_RINGS, 35, Color.WHITE, true);
 		t2.setTexto("Online");
 		t2.setPosition((Config.ANCHO / 2) - (t2.getAncho() / 2), (Config.ALTO / 2) + 50);
+		textos.add(t2);
 
 		t3 = new Texto(Recursos.FUENTE_RINGS, 35, Color.WHITE, true);
 		t3.setTexto("Opciones");
 		t3.setPosition((Config.ANCHO / 2) - (t3.getAncho() / 2), (Config.ALTO / 2));
+		textos.add(t3);
 
 		t4 = new Texto(Recursos.FUENTE_RINGS, 35, Color.WHITE, true);
 		t4.setTexto("Salir");
 		t4.setPosition((Config.ANCHO / 2) - (t4.getAncho() / 2), (Config.ALTO / 2) - 50);
+		textos.add(t4);
 	}
 
 	@Override
@@ -52,10 +60,8 @@ public class MenuView extends View {
 
 		batch.begin();
 		imagen.dibujar();
-		t1.dibujar();
-		t2.dibujar();
-		t3.dibujar();
-		t4.dibujar();
+		for (Texto texto : textos)
+			texto.dibujar();
 		batch.end();
 
 		tiempo += delta;
@@ -69,22 +75,21 @@ public class MenuView extends View {
 			}
 		}
 
-		if (op == 1) {
-			t1.setColor(Color.BLACK);
-			t2.setColor(Color.WHITE);
-			t4.setColor(Color.WHITE);
-		} else if (op == 2) {
-			t1.setColor(Color.WHITE);
-			t2.setColor(Color.BLACK);
-			t3.setColor(Color.WHITE);
-		} else if (op == 3) {
-			t2.setColor(Color.WHITE);
-			t3.setColor(Color.BLACK);
-			t4.setColor(Color.WHITE);
-		} else if (op == 4) {
-			t1.setColor(Color.WHITE);
-			t3.setColor(Color.WHITE);
-			t4.setColor(Color.BLACK);
+		if (entrada.isArriba()) {
+			if (tiempo > 0.1f) {
+				tiempo = 0;
+				op--;
+				if (op < 1) op = 4;
+			}
+		}
+		
+		if (entrada.isEnter()) {
+			if(op == 1) Render.app.setScreen(new GameScreen());
+		}
+
+		for (int i = 0; i < textos.size(); i++) {
+			if (i == (op - 1)) textos.get(i).setColor(Color.YELLOW);
+			else textos.get(i).setColor(Color.WHITE);
 		}
 
 	}
