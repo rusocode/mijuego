@@ -1,12 +1,13 @@
 package com.silentsoft.mijuego.views.screens;
 
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.silentsoft.mijuego.Main;
 import com.silentsoft.mijuego.elementos.Imagen;
 import com.silentsoft.mijuego.utils.Recursos;
 import com.silentsoft.mijuego.utils.Render;
 
-public class CargaScreen extends View {
+public class CargaScreen extends ScreenAdapter {
 
 	Imagen imagen;
 	SpriteBatch batch;

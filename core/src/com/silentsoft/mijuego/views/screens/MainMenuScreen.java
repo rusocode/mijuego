@@ -3,8 +3,11 @@ package com.silentsoft.mijuego.views.screens;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.silentsoft.mijuego.elementos.Imagen;
 import com.silentsoft.mijuego.elementos.Texto;
 import com.silentsoft.mijuego.io.Entrada;
@@ -12,11 +15,11 @@ import com.silentsoft.mijuego.utils.Config;
 import com.silentsoft.mijuego.utils.Recursos;
 import com.silentsoft.mijuego.utils.Render;
 
-public class MainMenuScreen extends View {
+public class MainMenuScreen extends ScreenAdapter {
 
 	SpriteBatch batch;
-	Imagen imagen;
-	Texto t1, t2, t3, t4;
+	Imagen fondo;
+	Texto t1, t2, t3, t4, coordenadas;
 
 	int op = 1;
 
@@ -26,11 +29,15 @@ public class MainMenuScreen extends View {
 
 	ArrayList<Texto> textos = new ArrayList<>();
 
+	ShapeRenderer sr;
+
 	@Override
 	public void show() {
-		imagen = new Imagen(Recursos.FONDO);
-		imagen.setSize(Config.ANCHO, Config.ALTO);
+		fondo = new Imagen(Recursos.FONDO);
+		fondo.setSize(Config.ANCHO, Config.ALTO);
 		batch = Render.batch;
+
+		sr = new ShapeRenderer();
 
 		Gdx.input.setInputProcessor(entrada);
 
@@ -53,16 +60,35 @@ public class MainMenuScreen extends View {
 		t4.setTexto("Salir");
 		t4.setPosition((Config.ANCHO / 2) - (t4.getAncho() / 2), (Config.ALTO / 2) - 50);
 		textos.add(t4);
+
+		coordenadas = new Texto(Recursos.FUENTE_MEDIEVAL, 35, Color.WHITE, true);
+		coordenadas.setY(Config.ALTO);
+
 	}
 
 	@Override
 	public void render(float delta) {
 
+		// Dibuja el fondo, las coordenadas y los textos
 		batch.begin();
-		imagen.dibujar();
+
+		fondo.dibujar();
+
 		for (Texto texto : textos)
 			texto.dibujar();
+
+		coordenadas.setTexto("X: " + entrada.getMouseX() + "\nY: " + entrada.getMouseY());
+		coordenadas.dibujar();
+
 		batch.end();
+
+		// Similar al batch
+		sr.begin(ShapeType.Line);
+		sr.setColor(Color.PINK);
+		// Dibuja un rectangulo para cada texto (tip para debuggear los clicks del mouse)
+		for (int i = 0; i < textos.size(); i++)
+			sr.rect(textos.get(i).getX(), textos.get(i).getY() - textos.get(i).getAlto(), textos.get(i).getAncho(), textos.get(i).getAlto());
+		sr.end();
 
 		tiempo += delta;
 
@@ -80,16 +106,26 @@ public class MainMenuScreen extends View {
 				tiempo = 0;
 				op--;
 				if (op < 1) op = 4;
-			}
-		}
 
-		if (entrada.isEnter()) {
-			if (op == 1) Render.app.setScreen(new GameScreen());
+			}
 		}
 
 		for (int i = 0; i < textos.size(); i++) {
 			if (i == (op - 1)) textos.get(i).setColor(Color.YELLOW);
 			else textos.get(i).setColor(Color.WHITE);
+		}
+
+		if (entrada.isEnter() && op == 1) Render.app.setScreen(new GameScreen());
+
+		/* Si el mouse X es mayor o igual a X del texto y el mouse X es menor o igual a X del texto + el ancho, es decir, si el
+		 * mouse esta dentro del cuadrado del texto, entonces... */
+		if ((entrada.getMouseX() >= textos.get(0).getX()) && (entrada.getMouseX() <= (textos.get(0).getX() + textos.get(0).getAncho()))) {
+			if ((entrada.getMouseY() >= textos.get(0).getY() - textos.get(0).getAlto()) && (entrada.getMouseY() <= (textos.get(0).getY()))) {
+				// textos.get(1).setColor(Color.YELLOW);
+				System.out.println("ola");
+
+			}
+
 		}
 
 	}
