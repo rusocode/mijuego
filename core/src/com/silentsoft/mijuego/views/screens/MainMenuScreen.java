@@ -66,6 +66,8 @@ public class MainMenuScreen extends ScreenAdapter {
 
 	}
 
+	/* Metodo llamado por el bucle del juego desde la aplicacion cada vez que se debe realizar el renderizado. Las
+	 * actualizaciones de la logica del juego generalmente tambien se realizan con este metodo. */
 	@Override
 	public void render(float delta) {
 

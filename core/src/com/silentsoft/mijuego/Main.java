@@ -9,7 +9,6 @@ package com.silentsoft.mijuego;
  * */
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.silentsoft.mijuego.utils.Render;
 import com.silentsoft.mijuego.views.screens.CargaScreen;
@@ -35,7 +34,9 @@ public class Main extends Game {
 	/* Esta funcion se ejecuta en paralelo al programa. Su objetivo es dibujar (actualizar) 60 veces por segundo (en este
 	 * caso) un sprite en pantalla.
 	 * 
-	 * En otras palabras funciona como un bucle. */
+	 * En otras palabras funciona como un bucle.
+	 * 
+	 * Este metodo puede considerarse como el cuerpo de dicho bucle principal. */
 	@Override
 	public void render() {
 		super.render();
